@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio de Servicios · Yureima Acevedo Arango</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#F4F6F4;color:#1a1a1a;min-height:100vh}
+.page{max-width:780px;margin:0 auto;padding:2rem 1.25rem 3rem}
+
+/* COVER */
+.cover{background:#0F6E56;border-radius:16px;padding:2.75rem 2.25rem 2.25rem;position:relative;overflow:hidden}
+.cover-c1{position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:#1D9E75;opacity:0.25}
+.cover-c2{position:absolute;bottom:-40px;left:-40px;width:130px;height:130px;border-radius:50%;background:#085041;opacity:0.35}
+.cover-tag{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#9FE1CB;font-weight:600;margin-bottom:14px;position:relative}
+.cover-name{font-size:30px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:6px;position:relative}
+.cover-role{font-size:15px;color:#9FE1CB;margin-bottom:1.5rem;position:relative}
+.cover-divider{width:44px;height:3px;background:#BA7517;border-radius:3px;margin-bottom:1.25rem;position:relative}
+.cover-tagline{font-size:14px;color:#E1F5EE;line-height:1.7;max-width:520px;position:relative}
+
+/* NAV */
+.nav{display:flex;gap:6px;margin:1.5rem 0 1.25rem;flex-wrap:wrap}
+.ntab{font-size:13px;padding:8px 18px;border-radius:24px;border:1px solid #ccc;background:#fff;color:#555;cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.ntab.active{background:#0F6E56;color:#fff;border-color:#0F6E56}
+.ntab:hover:not(.active){background:#E1F5EE;border-color:#5DCAA5;color:#085041}
+.panel{display:none}.panel.active{display:block}
+
+/* INTRO */
+.sector-note{background:#E1F5EE;border-radius:10px;padding:14px 18px;font-size:13px;color:#085041;line-height:1.65;margin-bottom:1.25rem}
+.sector-note strong{color:#0F6E56}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
+.icard{background:#fff;border:1px solid #e2e8e5;border-radius:14px;padding:1.1rem 1.2rem}
+.icard-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:18px}
+.icard-icon.gold{background:#FAEEDA}.icard-icon.teal{background:#E1F5EE}
+.icard-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:5px}
+.icard-desc{font-size:12px;color:#555;line-height:1.6}
+.btn-nav{font-size:13px;padding:8px 20px;border-radius:24px;border:1px solid #0F6E56;background:transparent;color:#0F6E56;cursor:pointer;font-family:inherit}
+.btn-nav:hover{background:#0F6E56;color:#fff}
+
+/* SECTION TITLES */
+.stitle{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;color:#888;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #e5e5e5}
+
+/* SERVICE CARDS */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:1.5rem}
+.svc-card{background:#fff;border:1px solid #e2e8e5;border-radius:14px;padding:1.1rem 1.2rem}
+.svc-card.featured{border:2px solid #0F6E56}
+.svc-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:17px}
+.svc-icon.teal{background:#E1F5EE}.svc-icon.gold{background:#FAEEDA}.svc-icon.purple{background:#EEEDFE}
+.svc-title{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:5px;line-height:1.35}
+.svc-desc{font-size:12px;color:#555;line-height:1.55}
+.svc-highlight{font-size:11px;color:#085041;background:#E1F5EE;border-radius:7px;padding:7px 10px;margin-top:9px;line-height:1.5}
+.pill-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.pill{font-size:10px;background:#f5f5f5;color:#666;border-radius:20px;padding:3px 9px;border:1px solid #e5e5e5}
+.cotiza-pill{font-size:10px;background:#FAEEDA;color:#7a4a0a;border-radius:20px;padding:3px 9px;font-weight:600}
+.svc-note{font-size:11px;color:#666;background:#f9f9f9;border-radius:8px;padding:10px 14px;line-height:1.6;margin-top:-4px;margin-bottom:1.5rem}
+
+/* TARIFARIO */
+.size-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
+.sztab{font-size:12px;padding:6px 16px;border-radius:20px;border:1px solid #ccc;background:#fff;color:#555;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.sztab.active{background:#0F6E56;color:#fff;border-color:#0F6E56}
+.entity-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1.1rem}
+.ebar{background:#f5f7f5;border-radius:9px;padding:10px 13px}
+.ebar-label{font-size:10px;color:#888;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.05em}
+.ebar-val{font-size:12px;font-weight:600;color:#1a1a1a}
+.agrem-note{border-left:3px solid #BA7517;padding:10px 14px;margin-bottom:1.25rem;font-size:12px;color:#666;line-height:1.6;background:#fdf8f0}
+.svc-table{width:100%;border-collapse:collapse;margin-bottom:1.25rem;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5}
+.svc-table th{background:#f5f7f5;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:#888;padding:10px 14px;text-align:left;font-weight:600}
+.svc-table th.right{text-align:right}
+.svc-table td{padding:11px 14px;font-size:13px;color:#1a1a1a;border-top:1px solid #f0f0f0}
+.svc-table td.price{text-align:right;font-weight:600;color:#0F6E56}
+.svc-table td.cotiza{text-align:right}
+.svc-table tr.note-row td{padding-top:0;padding-bottom:10px;font-size:11px;color:#888;line-height:1.5}
+.anual-badge{display:inline-flex;font-size:10px;background:#E1F5EE;color:#085041;border-radius:20px;padding:2px 8px;margin-left:6px;font-weight:600}
+.ctag{font-size:10px;background:#FAEEDA;color:#7a4a0a;border-radius:20px;padding:3px 9px;font-weight:600}
+
+/* ÓRGANOS */
+.organos-card{background:#fff;border:1px solid #e2e8e5;border-radius:14px;padding:1.1rem 1.25rem;margin-bottom:1.25rem}
+.organos-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.organos-icon{width:34px;height:34px;border-radius:9px;background:#FAEEDA;display:flex;align-items:center;justify-content:center;font-size:17px}
+.organos-title{font-size:14px;font-weight:600;color:#1a1a1a}
+.organos-sub{font-size:12px;color:#888}
+.otabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.otab{font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid #ccc;background:#fff;color:#555;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.otab.active{background:#0F6E56;color:#fff;border-color:#0F6E56}
+.organos-result{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ocard{background:#f5f7f5;border-radius:9px;padding:10px 12px;text-align:center}
+.ocard-label{font-size:10px;color:#888;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em}
+.ocard-val{font-size:13px;font-weight:600;color:#1a1a1a}
+.ocard-val.green{color:#0F6E56;font-size:15px}
+.organos-incl{font-size:11px;color:#888;margin-top:10px;line-height:1.5}
+
+/* CALCULADOR */
+.calc-card{background:#fff;border:1px solid #e2e8e5;border-radius:14px;padding:1.1rem 1.25rem;margin-bottom:1.25rem}
+.calc-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+.calc-icon{width:34px;height:34px;border-radius:9px;background:#FAECE7;display:flex;align-items:center;justify-content:center;font-size:18px}
+.calc-title{font-size:14px;font-weight:600;color:#1a1a1a}
+.calc-sub{font-size:12px;color:#888}
+.slider-wrap{margin-bottom:1.1rem}
+.slider-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.slider-lbl{font-size:12px;color:#666}
+.slider-bigval{font-size:22px;font-weight:700;color:#1a1a1a}
+input[type=range]{width:100%;accent-color:#0F6E56;margin-bottom:4px}
+.tramos{display:flex;border-radius:6px;overflow:hidden;height:6px;margin-top:4px}
+.tramo{flex:1;transition:opacity 0.2s}
+.tramo.active{opacity:1}.tramo.inactive{opacity:0.2}
+.tramo-labels{display:flex;margin-top:5px}
+.tramo-label{flex:1;font-size:10px;color:#888;text-align:center}
+.calc-divider{height:1px;background:#eee;margin:1rem 0}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.toggle-lbl{font-size:13px;font-weight:600;color:#1a1a1a}
+.toggle-sub{font-size:11px;color:#888}
+.toggle{position:relative;width:42px;height:24px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.tslider{position:absolute;inset:0;background:#ccc;border-radius:24px;cursor:pointer;transition:0.2s}
+.tslider:before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:0.2s}
+.toggle input:checked+.tslider{background:#0F6E56}
+.toggle input:checked+.tslider:before{transform:translateX(18px)}
+.retro-info{background:#E1F5EE;border-radius:10px;padding:10px 14px;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:opacity 0.2s}
+.retro-info.off{opacity:0.35}
+.retro-lbl{font-size:12px;color:#085041;font-weight:600}
+.retro-rango{font-size:11px;color:#0F6E56;margin-top:2px}
+.retro-val{font-size:13px;font-weight:600;color:#0F6E56;white-space:nowrap}
+.calc-result{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rcard{background:#f5f7f5;border-radius:9px;padding:10px 12px;text-align:center}
+.rcard-label{font-size:10px;color:#888;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em}
+.rcard-val{font-size:14px;font-weight:600;color:#1a1a1a}
+.rcard-val.total{color:#0F6E56;font-size:15px}
+.calc-note{font-size:11px;color:#888;margin-top:10px;text-align:center}
+
+/* NORDICO */
+.nordico-card{background:#E1F5EE;border-radius:14px;padding:1.1rem 1.25rem;margin-bottom:1.25rem;border:1px solid #9FE1CB}
+.nordico-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.nordico-icon{width:34px;height:34px;border-radius:9px;background:#9FE1CB;display:flex;align-items:center;justify-content:center;font-size:17px}
+.nordico-vals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.nval{background:#fff;border-radius:10px;padding:12px 16px;border:1px solid #9FE1CB}
+.nval-label{font-size:11px;color:#0F6E56;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
+.nval-val{font-size:18px;font-weight:700;color:#085041}
+.nval-desc{font-size:11px;color:#0F6E56;margin-top:3px}
+.note-footer{font-size:11px;color:#888;padding-top:1rem;border-top:1px solid #eee;line-height:1.65}
+.page-footer{text-align:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #ddd;font-size:11px;color:#aaa}
+
+/* MOSTRAR/OCULTAR VALORES */
+.price-toggle-card{background:#fff;border:1px solid #e2e8e5;border-radius:14px;padding:1rem 1.25rem;margin-bottom:1.25rem}
+.price-placeholder{display:none;font-style:italic;color:#999;font-weight:600}
+.page.hide-prices .price-value{display:none}
+.page.hide-prices .price-placeholder{display:inline}
+
+@media(max-width:520px){
+  .intro-grid,.svc-grid{grid-template-columns:1fr}
+  .entity-bar,.calc-result,.nordico-vals,.organos-result{grid-template-columns:1fr 1fr}
+  .cover-name{font-size:24px}
+  .nav,.size-tabs,.otabs{gap:5px}
+}
+</style>
+</head>
+<body>
+<div class="page hide-prices" id="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-c1"></div>
+  <div class="cover-c2"></div>
+  <div class="cover-tag">Portafolio de servicios · 2026</div>
+  <div class="cover-name">Yureima Acevedo Arango</div>
+  <div class="cover-role">Consultora en gestión empresarial</div>
+  <div class="cover-divider"></div>
+  <div class="cover-tagline">Acompañamiento estratégico, desarrollo del talento humano y formación de líderes para cooperativas, fondos de empleados y asociaciones mutuales. Soluciones diseñadas a la medida de cada entidad.</div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="ntab active" onclick="showPanel('intro')">&#9432; ¿Quién soy?</button>
+  <button class="ntab" onclick="showPanel('servicios')">&#128188; Servicios</button>
+</div>
+
+<!-- PANEL INTRO -->
+<div class="panel active" id="panel-intro">
+  <div class="sector-note">Trabajo exclusivamente con organizaciones del <strong>sector solidario colombiano</strong> — cooperativas, fondos de empleados, asociaciones mutuales y sus fundaciones. Conozco su normativa, su cultura organizacional y sus retos reales.</div>
+  <div class="intro-grid">
+    <div class="icard">
+      <div class="icard-icon gold">&#127919;</div>
+      <div class="icard-title">Planeación estratégica</div>
+      <div class="icard-desc">Construyo planes estratégicos y acompaño su ejecución, instalando en el equipo gerencial la disciplina de seguimiento para que las metas se conviertan en resultados.</div>
+    </div>
+    <div class="icard">
+      <div class="icard-icon teal">&#128101;</div>
+      <div class="icard-title">Talento humano</div>
+      <div class="icard-desc">Diseño e implemento evaluaciones de desempeño, procesos de clima laboral y programas de coaching para líderes, con enfoque en el desarrollo real de las personas.</div>
+    </div>
+    <div class="icard">
+      <div class="icard-icon gold">&#127979;</div>
+      <div class="icard-title">Formación</div>
+      <div class="icard-desc">Facilito talleres en liderazgo, habilidades comerciales y competencias blandas, adaptados al contexto y lenguaje de cada organización solidaria.</div>
+    </div>
+    <div class="icard">
+      <div class="icard-icon teal">&#129517;</div>
+      <div class="icard-title">Nórdico</div>
+      <div class="icard-desc">Plataforma propia de seguimiento estratégico en la nube. Permite al equipo gerencial monitorear indicadores en tiempo real desde cualquier dispositivo.</div>
+    </div>
+  </div>
+  <button class="btn-nav" onclick="showPanel('servicios')">Ver servicios &#8594;</button>
+</div>
+
+<!-- PANEL SERVICIOS -->
+<div class="panel" id="panel-servicios">
+
+  <div class="stitle">&#127919; Planeación estratégica</div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon teal">&#128506;</div>
+      <div class="svc-title">Construcción del plan estratégico</div>
+      <div class="svc-desc">Acompañamiento integral para formular visión, misión, objetivos y rutas de acción con participación del equipo directivo.</div>
+      <div class="pill-list"><span class="pill">Diagnóstico</span><span class="pill">Talleres participativos</span><span class="pill">Documento final</span></div>
+    </div>
+    <div class="svc-card featured">
+      <div class="svc-icon teal">&#127963;</div>
+      <div class="svc-title">Desdoblamiento estratégico + cultura de seguimiento gerencial</div>
+      <div class="svc-desc">Convierte el plan en metas concretas por área e instala en el equipo gerencial la disciplina para monitorear resultados de forma autónoma durante todo el año.</div>
+      <div class="svc-highlight">El resultado no es solo un tablero: es un equipo directivo que sabe leer sus indicadores, gestionar su área y rendir cuentas con foco en el logro.</div>
+      <div class="pill-list"><span class="pill">Metas por área</span><span class="pill">Tablero de control</span><span class="pill">Seguimiento anual</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon teal">&#128220;</div>
+      <div class="svc-title">PESEM</div>
+      <div class="svc-desc">Diseño del Proyecto Educativo Socioempresarial: diagnóstico, formulación de objetivos, indicadores, metas, estrategias y POA del primer año.</div>
+      <div class="pill-list"><span class="pill">Diagnóstico</span><span class="pill">Documento PESEM</span><span class="pill">POA editable</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon teal">&#129517;</div>
+      <div class="svc-title">Herramienta nórdica de gestión</div>
+      <div class="svc-desc">Implementación de la metodología nórdica para entidades que ya tienen su plan y quieren una herramienta de seguimiento robusta.</div>
+      <div class="pill-list"><span class="pill">Diagnóstico</span><span class="pill">Capacitación</span><span class="pill">Herramienta lista</span></div>
+    </div>
+  </div>
+
+  <div class="stitle">&#128101; Talento humano</div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon gold">&#9989;</div>
+      <div class="svc-title">Evaluaciones de desempeño — colaboradores</div>
+      <div class="svc-desc">Diseño e implementación de evaluaciones 90°, 180° o 270° con retroalimentación individual y planes de mejora por colaborador.</div>
+      <div class="pill-list"><span class="pill">90° / 180° / 270°</span><span class="pill">Informe individual</span><span class="pill">Plan de acción</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon gold">&#127942;</div>
+      <div class="svc-title">Evaluación de órganos solidarios</div>
+      <div class="svc-desc">Evaluación del Consejo de Administración y la Junta de Vigilancia. Incluye instrumento, aplicación, informes individuales y retroalimentación por directivo.</div>
+      <div class="pill-list"><span class="pill">Consejo de Adm.</span><span class="pill">Junta de Vigilancia</span><span class="pill">Todo incluido</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon gold">&#128202;</div>
+      <div class="svc-title">Clima laboral</div>
+      <div class="svc-desc">Encuesta, procesamiento, informe general y retroalimentación por área con recomendaciones accionables para la gerencia.</div>
+      <div class="pill-list"><span class="pill">Encuesta</span><span class="pill">Informe general</span><span class="pill">Por área</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon gold">&#11088;</div>
+      <div class="svc-title">Escuela de Líderes</div>
+      <div class="svc-desc">Programa de coaching empresarial individual o grupal, diseñado a la medida según número de líderes, modalidad e intensidad del programa.</div>
+      <div class="pill-list"><span class="pill">Individual</span><span class="pill">Grupal</span><span class="cotiza-pill">Cotización</span></div>
+    </div>
+  </div>
+
+  <div class="stitle">&#127979; Formación y desarrollo</div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon purple">&#129504;</div>
+      <div class="svc-title">Liderazgo</div>
+      <div class="svc-desc">Liderazgo transformacional, gestión de equipos, comunicación efectiva y toma de decisiones.</div>
+      <div class="pill-list"><span class="pill">Presencial</span><span class="pill">Virtual</span><span class="cotiza-pill">Cotización</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon purple">&#128200;</div>
+      <div class="svc-title">Habilidades comerciales</div>
+      <div class="svc-desc">Venta consultiva, fidelización de asociados y conversión de servicios para equipos comerciales cooperativos.</div>
+      <div class="pill-list"><span class="pill">Asesores</span><span class="pill">Directivos</span><span class="cotiza-pill">Cotización</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon purple">&#129309;</div>
+      <div class="svc-title">Habilidades blandas</div>
+      <div class="svc-desc">Inteligencia emocional, trabajo en equipo, resolución de conflictos y comunicación asertiva.</div>
+      <div class="pill-list"><span class="pill">Vivencial</span><span class="cotiza-pill">Cotización</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon purple">&#128187;</div>
+      <div class="svc-title">Diseño de cursos virtuales</div>
+      <div class="svc-desc">Diseño instruccional y desarrollo de cursos e-learning a la medida: estructura pedagógica, guiones, actividades y evaluación, listos para publicar en cualquier plataforma LMS.</div>
+      <div class="pill-list"><span class="pill">Diseño instruccional</span><span class="pill">Guiones y actividades</span><span class="cotiza-pill">Cotización</span></div>
+    </div>
+  </div>
+  <div class="svc-note">Los talleres y el diseño de cursos virtuales se cotizan según modalidad (presencial o virtual), número de participantes o módulos, duración y si se requiere desplazamiento o producción multimedia.</div>
+
+</div>
+
+
+<div class="page-footer">© 2026 Yureima Acevedo Arango · Consultora en Gestión Empresarial · Colombia</div>
+</div>
+
+<script>
+const sizes=[
+  {activos:'Hasta $5.000 M',asoc:'Hasta 200',colab:'Hasta 20',plan:'$9.000.000',desdoble:'$7.000.000',clima:'$2.000.000',pesem:'$5.000.000',nmensual:'$250.000',nanual:'$2.500.000'},
+  {activos:'$5.000 M – $30.000 M',asoc:'200 – 500',colab:'20 – 80',plan:'$10.000.000',desdoble:'$10.000.000',clima:'$2.500.000',pesem:'$7.500.000',nmensual:'$400.000',nanual:'$4.000.000'},
+  {activos:'$30.000 M – $100.000 M',asoc:'500 – 2.000',colab:'80 – 250',plan:'$14.000.000',desdoble:'$16.000.000',clima:'$4.000.000',pesem:'$9.500.000',nmensual:'$650.000',nanual:'$6.500.000'},
+  {activos:'Más de $100.000 M',asoc:'Más de 2.000',colab:'Más de 250',plan:'$20.000.000',desdoble:'$24.000.000',clima:'$6.500.000',pesem:'$11.500.000',nmensual:'$950.000',nanual:'$9.500.000'}
+];
+const organos=[
+  {asoc:'Hasta 200',dir:'6 – 8',precio:'$2.800.000'},
+  {asoc:'Hasta 500',dir:'6 – 9',precio:'$3.501.810'},
+  {asoc:'501 – 2.000',dir:'8 – 12',precio:'$4.377.263'},
+  {asoc:'2.001 – 5.000',dir:'12 – 16',precio:'$6.128.168'}
+];
+const tramosEval=[
+  {max:15,base:4300000,retro:2200000,label:'Hasta 15 colaboradores'},
+  {max:20,base:5500000,retro:2800000,label:'16 a 20 colaboradores'},
+  {max:30,base:7500000,retro:4000000,label:'21 a 30 colaboradores'},
+  {max:60,base:9500000,retro:7000000,label:'31 a 60 colaboradores'}
+];
+
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  const map={intro:0,servicios:1,tarifario:2};
+  document.querySelectorAll('.ntab')[map[id]].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function setSize(i){
+  const s=sizes[i];
+  document.getElementById('e-activos').textContent=s.activos;
+  document.getElementById('e-asoc').textContent=s.asoc;
+  document.getElementById('e-colab').textContent=s.colab;
+  document.getElementById('p-plan').textContent=s.plan;
+  document.getElementById('p-desdoble').textContent=s.desdoble;
+  document.getElementById('p-clima').textContent=s.clima;
+  document.getElementById('p-pesem').textContent=s.pesem;
+  document.getElementById('n-mensual').textContent=s.nmensual;
+  document.getElementById('n-anual').textContent=s.nanual;
+  document.querySelectorAll('.sztab').forEach((t,j)=>t.classList.toggle('active',j===i));
+}
+function setOrganos(i){
+  const o=organos[i];
+  document.getElementById('o-asoc').textContent=o.asoc;
+  document.getElementById('o-dir').textContent=o.dir;
+  document.getElementById('o-precio').textContent=o.precio;
+  document.querySelectorAll('.otab').forEach((t,j)=>t.classList.toggle('active',j===i));
+}
+function fmt(n){return '$'+Math.round(n).toLocaleString('es-CO')}
+function getTramo(c){for(let i=0;i<tramosEval.length;i++)if(c<=tramosEval[i].max)return i;return -1;}
+function calcEval(){
+  const colab=parseInt(document.getElementById('sl-colab').value);
+  const conRetro=document.getElementById('chk-retro').checked;
+  const ti=getTramo(colab);
+  const t=ti>=0?tramosEval[ti]:null;
+  document.getElementById('out-colab').textContent=colab;
+  for(let i=0;i<4;i++){
+    document.getElementById('t'+i).classList.toggle('active',i===ti);
+    document.getElementById('t'+i).classList.toggle('inactive',i!==ti);
+  }
+  document.getElementById('retro-info').classList.toggle('off',!conRetro);
+  if(t){
+    document.getElementById('out-retro').textContent='+ '+fmt(t.retro);
+    document.getElementById('retro-rango').textContent='Tramo: '+t.label;
+    document.getElementById('rc-base').textContent=fmt(t.base);
+    document.getElementById('rc-retro').textContent=conRetro?fmt(t.retro):'—';
+    document.getElementById('rc-total').textContent=conRetro?fmt(t.base+t.retro):fmt(t.base);
+    document.getElementById('calc-note').textContent='Más de 60 colaboradores: cotización personalizada';
+  } else {
+    document.getElementById('out-retro').textContent='Por cotizar';
+    document.getElementById('retro-rango').textContent='Más de 60 colaboradores';
+    document.getElementById('rc-base').textContent='Cotización';
+    document.getElementById('rc-retro').textContent='—';
+    document.getElementById('rc-total').textContent='Cotización';
+    document.getElementById('calc-note').textContent='Contáctame para una cotización personalizada';
+    for(let i=0;i<4;i++){document.getElementById('t'+i).classList.remove('active');document.getElementById('t'+i).classList.add('inactive');}
+  }
+}
+function togglePrices(){
+  const show=document.getElementById('chk-show-prices').checked;
+  document.getElementById('page').classList.toggle('hide-prices',!show);
+}
+calcEval();
+</script>
+</body>
+</html>
