@@ -230,6 +230,11 @@ input[type=range]{width:100%;accent-color:#0F6E56;margin-bottom:4px}
 .view{display:none}
 .view.active{display:block}
 
+/* MARCA */
+.brand-topbar{display:flex;align-items:center;gap:10px;margin-bottom:1.1rem}
+.brand-mark{flex-shrink:0}
+.brand-wordmark{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:#0F6E56;letter-spacing:0.01em}
+
 /* PESTAÑAS SUPERIORES */
 .toptabs{display:flex;gap:8px;margin-bottom:1.5rem}
 .toptab{flex:1;font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:700;padding:13px 16px;border-radius:14px;border:1px solid #e2e8e5;background:#fff;color:#555;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all 0.15s}
@@ -269,6 +274,15 @@ input[type=range]{width:100%;accent-color:#0F6E56;margin-bottom:4px}
 </head>
 <body>
 <div class="page hide-prices" id="page">
+
+<!-- MARCA -->
+<div class="brand-topbar">
+  <svg class="brand-mark" viewBox="0 0 64 64" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="29.5" fill="#0F6E56" stroke="#BA7517" stroke-width="3"/>
+    <text x="32" y="42" font-family="Fraunces, serif" font-size="25" font-weight="600" fill="#fff" text-anchor="middle">YA</text>
+  </svg>
+  <span class="brand-wordmark">Yureima Acevedo</span>
+</div>
 
 <!-- PESTAÑAS SUPERIORES -->
 <div class="toptabs">
